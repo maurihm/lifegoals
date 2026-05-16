@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card add-card">
+    <h2>Añadir una meta a la vida</h2>
+    <p class="subtitle">Usa el formulario de abajo para añadir una nueva meta</p>
+    
+    <div class="input-group">
+      <input 
+        type="text" 
+        [(ngModel)]="nuevaMetaTexto" 
+        placeholder="Ej. Terminar el semestre al 100..."
+        (keyup.enter)="guardarMeta()"
+      />
+      <button (click)="guardarMeta()">Añadir ítem</button>
+    </div>
+  </div>
+
+  <div class="list-container">
+    <h2>Tu lista de metas ({{ listaMetas.length }})</h2>
+    
+    <div class="metas-grid">
+      <div class="card meta-card" *ngFor="let m of listaMetas">
+        <div class="meta-content">
+          <p class="meta-text">{{ m.meta }}</p>
+          <span class="meta-date">Añadido el 16/05/2026</span>
+        </div>
+        <button class="delete-btn" (click)="borrarMeta(m.id)">
+          🗑️
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
